@@ -1,10 +1,18 @@
 import { GoogleGenAI } from "@google/genai";
 
-const apiKey = process.env.API_KEY;
+const getEnv = (key: string) => {
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env[key];
+  }
+  return undefined;
+};
+
+const apiKey = getEnv('API_KEY');
 
 export const getInteriorDesignAdvice = async (userQuery: string): Promise<string> => {
   if (!apiKey) {
-    throw new Error("API Key not found in environment variables.");
+    // Return a polite fallback if no API key is available instead of crashing
+    return "I am currently offline. Please contact support directly for assistance.";
   }
 
   try {

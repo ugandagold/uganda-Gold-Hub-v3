@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowRight, Check, Loader2, Lock } from 'lucide-react';
-import { supabase } from '../services/supabaseClient';
 
 interface FooterProps {
   onAdminClick?: () => void;
@@ -15,17 +14,13 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
     if (!email || !email.includes('@')) return;
 
     setStatus('loading');
-    try {
-      const { error } = await supabase.from('newsletter_subscribers').insert({ email });
-      if (error) throw error;
+    // Mock API call time
+    setTimeout(() => {
       setStatus('success');
       setEmail('');
-    } catch (error) {
-      console.error('Subscription error:', error);
-      setStatus('error');
-      // Reset error after 3 seconds
+      
       setTimeout(() => setStatus('idle'), 3000);
-    }
+    }, 1500);
   };
 
   return (
@@ -82,40 +77,45 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
              <div>
                <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Company</h4>
                <ul className="space-y-4">
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">About Us</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Compliance</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Mining Sites</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Manifesto</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Leadership</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Sustainability</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Careers</a></li>
                </ul>
              </div>
              <div>
                <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Legal</h4>
                <ul className="space-y-4">
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Export Permits</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Privacy Policy</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Terms of Trade</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Export Policy</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Terms of Service</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Privacy</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Compliance</a></li>
                </ul>
              </div>
              <div>
-               <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Contact</h4>
+               <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Social</h4>
                <ul className="space-y-4">
-                 <li><a href="#" className="hover:text-amber-400 transition-colors flex items-center gap-1">Kampala HQ</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors flex items-center gap-1">Entebbe Office</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">LinkedIn</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Twitter</a></li>
+                 <li><a href="#" className="hover:text-amber-400 transition-colors">Instagram</a></li>
                </ul>
              </div>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-[10px] text-stone-500 pt-8 border-t border-white/10 uppercase tracking-wider">
-           <p>© Uganda Gold Hub Ltd.</p>
-           <div className="flex gap-4">
-             <p>Licensed by DGSM - 2025</p>
-             {onAdminClick && (
-               <button onClick={onAdminClick} className="hover:text-white transition-colors flex items-center gap-1">
-                 <Lock size={10} /> Staff Portal
-               </button>
-             )}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+           <p className="text-stone-500 text-[10px] uppercase tracking-widest">© 2024 Uganda Gold Hub. All rights reserved.</p>
+           <div className="flex gap-6">
+              {onAdminClick && (
+                <button 
+                  onClick={onAdminClick} 
+                  className="text-stone-600 hover:text-amber-500 transition-colors flex items-center gap-1"
+                  title="Admin Access"
+                >
+                  <Lock size={12} />
+                </button>
+              )}
            </div>
-           <p className="flex items-center gap-1">Secure Trading Platform</p>
         </div>
       </div>
     </footer>

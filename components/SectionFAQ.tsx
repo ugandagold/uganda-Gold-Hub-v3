@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowDown, ArrowUp } from 'lucide-react';
 import { FAQItem } from '../types';
-import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
 
 const fallbackFaqs: FAQItem[] = [
   { question: 'What is the minimum purity of gold you export?', answer: 'We primarily deal in 22k raw gold (92%+) and refined 24k bullion (99.9%). All exports are accompanied by assay reports from government-certified laboratories.' },
@@ -13,32 +12,10 @@ const fallbackFaqs: FAQItem[] = [
 ];
 
 const SectionFAQ: React.FC = () => {
-  const [faqs, setFaqs] = useState<FAQItem[]>(fallbackFaqs);
+  const [faqs] = useState<FAQItem[]>(fallbackFaqs);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const fetchFAQs = async () => {
-      if (!isSupabaseConfigured()) return;
-      
-      let result = await supabase.from('faqs').select('*').order('display_order', { ascending: true });
-
-      if (result.error) {
-        result = await supabase.from('faqs').select('*');
-      }
-      
-      const { data, error } = result;
-      
-      if (error) {
-          console.warn("Could not fetch FAQs:", error.message);
-      } else if (data && data.length > 0) {
-          setFaqs(data as FAQItem[]);
-      }
-    };
-
-    fetchFAQs();
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

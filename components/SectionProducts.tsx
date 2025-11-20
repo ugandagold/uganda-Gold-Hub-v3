@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Product } from '../types';
-import { ShoppingBag, Heart, Check, Loader2, UploadCloud, AlertCircle, FileText, Scale } from 'lucide-react';
-import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
+import { Check, FileText, Scale } from 'lucide-react';
 
 // Fallback data tailored to Gold Trading
 const fallbackProducts: Product[] = [
@@ -21,50 +20,14 @@ const categories = [
 ];
 
 const SectionProducts: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>(fallbackProducts);
+  const [products] = useState<Product[]>(fallbackProducts);
   const [activeCat, setActiveCat] = useState('Bullion');
   const [isVisible, setIsVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   
   // State for interactive elements
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
   const [cart, setCart] = useState<Set<string>>(new Set());
-  
-  // State for upload/error
-  const [uploading, setUploading] = useState(false);
-  const [dbError, setDbError] = useState<string | null>(null);
-
-  const fetchProducts = async () => {
-      if (!isSupabaseConfigured()) return;
-
-      try {
-        setLoading(true);
-        const { data, error } = await supabase
-          .from('products')
-          .select('*');
-
-        if (error) {
-          console.warn('Error loading products:', error.message);
-          setDbError(error.message);
-        } else {
-          setDbError(null);
-          if (data && data.length > 0) {
-             setProducts(data as Product[]);
-          } else {
-             console.log('Products table empty, using fallback.');
-          }
-        }
-      } catch (err) {
-        console.error('Unexpected error:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -112,26 +75,6 @@ const SectionProducts: React.FC = () => {
     });
   };
 
-  const handleSeedData = async () => {
-    setUploading(true);
-    try {
-      const dataToInsert = fallbackProducts.map(({ id, ...rest }) => rest);
-      const { error } = await supabase.from('products').insert(dataToInsert);
-      
-      if (error) {
-        alert(`Error uploading data: ${error.message}`);
-      } else {
-        alert('✅ Success! Data uploaded.');
-        fetchProducts();
-      }
-    } catch (err) {
-      console.error(err);
-      alert('An unexpected error occurred.');
-    } finally {
-      setUploading(false);
-    }
-  };
-
   return (
     <section ref={sectionRef} className={`py-20 md:py-24 bg-[#F5F5F4] overflow-hidden transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
@@ -160,45 +103,6 @@ const SectionProducts: React.FC = () => {
           </div>
           
           <div className="flex items-center gap-4 self-start lg:self-center">
-             {!dbError && products === fallbackProducts && isSupabaseConfigured() && (
-              <button 
-                onClick={handleSeedData} 
-                disabled={uploading}
-                className="flex items-center gap-2 px-4 py-2 bg-stone-200 text-stone-600 rounded-full text-xs font-bold hover:bg-stone-300 transition-colors"
-              >
-                {uploading ? <Loader2 size={14} className="animate-spin" /> : <UploadCloud size={14} />}
-                Seed Data
-              </button>
-            )}
-
-            {dbError && (
-               <div className="flex flex-col items-end">
-                  <div className="text-red-500 flex items-center gap-2 text-xs font-medium bg-red-50 px-3 py-1 rounded-full mb-2">
-                    <AlertCircle size={14} />
-                    Missing Table
-                  </div>
-                  <div className="p-4 bg-stone-900 text-white text-[10px] font-mono rounded-xl max-w-xs">
-                     <p className="mb-2 text-stone-400">// Run this in Supabase SQL Editor:</p>
-                     <code className="block select-all">
-                       create table products (
-                         id uuid default gen_random_uuid() primary key,
-                         name text,
-                         category text,
-                         price numeric,
-                         "originalPrice" numeric,
-                         image text,
-                         "isNew" boolean,
-                         created_at timestamp with time zone default now()
-                       );
-                       alter table products enable row level security;
-                       create policy "Public read" on products for select using (true);
-                       create policy "Public insert" on products for insert with check (true);
-                     </code>
-                  </div>
-               </div>
-            )}
-
-            {loading && <Loader2 className="animate-spin text-stone-400" size={20} />}
             <button className="px-8 py-4 bg-stone-900 text-white text-xs font-bold rounded-full hover:bg-stone-800 transition-colors uppercase tracking-wider border border-stone-800">
               Full Inventory
             </button>
