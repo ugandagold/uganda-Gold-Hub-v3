@@ -11,9 +11,15 @@ const SectionContact: React.FC = () => {
             </div>
 
             <form className="space-y-6">
-               <div className="flex flex-col gap-2">
-                  <label className="text-amber-500 text-xs font-bold uppercase tracking-widest">Name</label>
-                  <input type="text" placeholder="John Doe" className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" />
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex flex-col gap-2">
+                     <label className="text-amber-500 text-xs font-bold uppercase tracking-widest">Name</label>
+                     <input type="text" placeholder="John Doe" className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                     <label className="text-amber-500 text-xs font-bold uppercase tracking-widest">Company</label>
+                     <input type="text" placeholder="Global Mining Ltd." className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" />
+                  </div>
                </div>
 
                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -22,18 +28,29 @@ const SectionContact: React.FC = () => {
                      <input type="text" placeholder="(+62) 123-456-789" className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" />
                   </div>
                   <div className="flex flex-col gap-2">
-                     <label className="text-amber-500 text-xs font-bold uppercase tracking-widest">Subject</label>
-                     <input type="text" placeholder="Subject" className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" />
+                     <label className="text-amber-500 text-xs font-bold uppercase tracking-widest">Inquiry Type</label>
+                     <select className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors appearance-none">
+                        <option>Purchase Gold</option>
+                        <option>Sell / Mine Partnership</option>
+                        <option>Logistics & Export</option>
+                        <option>Investor Relations</option>
+                        <option>General Inquiry</option>
+                     </select>
                   </div>
                </div>
 
                <div className="flex flex-col gap-2">
-                  <label className="text-amber-500 text-xs font-bold uppercase tracking-widest">Message</label>
-                  <textarea rows={4} placeholder="Hello" className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors"></textarea>
+                  <label className="text-amber-500 text-xs font-bold uppercase tracking-widest">Subject</label>
+                  <input type="text" placeholder="Subject" className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" />
                </div>
 
-               <button type="submit" className="w-full md:w-auto px-12 py-4 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold text-sm uppercase tracking-widest rounded-xl transition-colors mt-4">
-                  Submit
+               <div className="flex flex-col gap-2">
+                  <label className="text-amber-500 text-xs font-bold uppercase tracking-widest">Message</label>
+                  <textarea rows={4} placeholder="How can we help you?" className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors"></textarea>
+               </div>
+
+               <button type="submit" className="w-full md:w-auto px-12 py-4 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold text-sm uppercase tracking-widest rounded-xl transition-colors mt-4 shadow-lg hover:shadow-amber-500/20">
+                  Submit Request
                </button>
             </form>
          </div>

@@ -1,25 +1,63 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Scan, Leaf, Cpu, CheckCircle2, ArrowRight } from 'lucide-react';
+
+interface SectionServicesProps {
+  compact?: boolean;
+  onNavigate?: (page: string) => void;
+}
 
 const services = [
   {
     id: '01',
     title: 'Mineral Exploration',
+    icon: <Scan size={32} className="text-amber-500" />,
     description: 'Advanced geophysical surveys and core sampling to identify high-yield gold deposits with precision and minimal environmental impact.',
+    expandedDesc: 'We utilize cutting-edge geophysical technologies to map potential deposits with high accuracy. Our exploration phase minimizes financial risk and maximizes yield through data-driven decision making.',
+    featuresTitle: 'Technologies Deployed',
+    features: [
+      'Airborne Magnetometry',
+      'Induced Polarization (IP)',
+      'Diamond Core Drilling',
+      '3D Geological Modeling',
+      'Geochemical Soil Sampling',
+      'Drone Topography'
+    ]
   },
   {
     id: '02',
     title: 'Resource Management',
+    icon: <Leaf size={32} className="text-amber-500" />,
     description: 'Comprehensive site planning and logistics to ensure efficient extraction, regulatory compliance, and sustainable resource utilization.',
+    expandedDesc: 'Sustainability is at the core of our operations. We implement rigorous environmental management plans that go beyond regulatory compliance to ensure long-term ecological balance.',
+    featuresTitle: 'Sustainability Practices',
+    features: [
+      'Mercury-Free Processing',
+      'Zero-Discharge Water Systems',
+      'Progressive Land Rehabilitation',
+      'Community Development',
+      'Native Flora Restoration',
+      'Solar-Powered Camps'
+    ]
   },
   {
     id: '03',
     title: 'Smart Infrastructure',
+    icon: <Cpu size={32} className="text-amber-500" />,
     description: 'Deploying automated systems and IoT monitoring for real-time safety tracking and operational efficiency in remote mining locations.',
+    expandedDesc: 'Our mining sites are connected via industrial IoT networks, providing headquarters and international investors with real-time visibility into production rates, machinery health, and security status.',
+    featuresTitle: 'Real-Time Benefits',
+    features: [
+      'Live Production Telemetry',
+      'Predictive Maintenance',
+      'Geo-fenced Asset Security',
+      'Automated Safety Shutoffs',
+      'Remote CCTV Surveillance',
+      'Fuel Usage Optimization'
+    ]
   }
 ];
 
-const SectionServices: React.FC = () => {
+const SectionServices: React.FC<SectionServicesProps> = ({ compact = false, onNavigate }) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -46,24 +84,63 @@ const SectionServices: React.FC = () => {
              <h2 className="text-sm font-bold text-amber-600 uppercase tracking-widest mb-2">Our Capabilities</h2>
              <h3 className="text-3xl md:text-4xl font-serif text-stone-900 leading-tight">Strength below surface. Proven technical solutions.</h3>
           </div>
-          <button className="hidden md:flex items-center gap-2 px-6 py-3 border border-stone-300 rounded-full text-xs font-bold uppercase hover:bg-stone-900 hover:text-white transition-colors mt-6 md:mt-0">
-            View All Services
-          </button>
+          {compact && (
+            <button 
+              onClick={() => onNavigate?.('service')}
+              className="hidden md:flex items-center gap-2 px-6 py-3 border border-stone-300 rounded-full text-xs font-bold uppercase hover:bg-stone-900 hover:text-white transition-colors mt-6 md:mt-0"
+            >
+              View All Services
+            </button>
+          )}
         </div>
 
         <div className="grid grid-cols-1 gap-8">
            {services.map((service) => (
-             <div key={service.id} className="group border-t border-stone-200 py-12 flex flex-col md:flex-row gap-8 items-start md:items-center hover:bg-white transition-colors duration-300 px-4 md:px-8 rounded-3xl">
-                <span className="text-4xl md:text-6xl font-serif text-stone-200 group-hover:text-amber-500 transition-colors font-bold">
-                  {service.id}
-                </span>
-                <div className="flex-1">
-                   <h4 className="text-2xl font-serif text-stone-900 mb-2">{service.title}</h4>
-                   <p className="text-stone-500 max-w-xl">{service.description}</p>
+             <div key={service.id} className={`group border-t border-stone-200 py-12 flex flex-col ${compact ? 'md:flex-row items-start md:items-center' : 'gap-8'} hover:bg-white transition-colors duration-300 px-4 md:px-10 rounded-[2rem]`}>
+                
+                {/* Header Row */}
+                <div className={`flex ${compact ? 'flex-1 items-center gap-8' : 'w-full justify-between items-start'}`}>
+                  <div className="flex items-center gap-6">
+                    <span className="text-4xl md:text-5xl font-serif text-stone-200 group-hover:text-amber-500 transition-colors font-bold">
+                      {service.id}
+                    </span>
+                    {!compact && <div className="p-3 bg-stone-100 rounded-2xl text-stone-600 group-hover:bg-amber-100 group-hover:text-amber-600 transition-colors">{service.icon}</div>}
+                  </div>
+                  
+                  <div className={compact ? 'flex-1' : 'max-w-3xl'}>
+                     <h4 className="text-2xl md:text-3xl font-serif text-stone-900 mb-3">{service.title}</h4>
+                     <p className="text-stone-500 leading-relaxed">
+                        {compact ? service.description : service.expandedDesc}
+                     </p>
+                  </div>
+
+                  {compact && (
+                    <div className="w-12 h-12 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 group-hover:bg-stone-900 group-hover:text-white group-hover:border-stone-900 transition-all shrink-0 ml-4">
+                       <ArrowUpRight size={20} />
+                    </div>
+                  )}
                 </div>
-                <div className="w-12 h-12 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 group-hover:bg-stone-900 group-hover:text-white group-hover:border-stone-900 transition-all">
-                   <ArrowUpRight size={20} />
-                </div>
+
+                {/* Detailed Features Grid (Only visible in detailed mode) */}
+                {!compact && (
+                  <div className="w-full pl-0 md:pl-[calc(4rem+24px)] mt-8">
+                     <div className="bg-stone-100/50 rounded-3xl p-8 border border-stone-100">
+                        <h5 className="text-xs font-bold text-amber-600 uppercase tracking-widest mb-6 flex items-center gap-2">
+                          {service.featuresTitle}
+                          <div className="h-px bg-amber-200 flex-1 opacity-50"></div>
+                        </h5>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                           {service.features.map((feature, idx) => (
+                             <div key={idx} className="flex items-center gap-3 text-stone-700 font-medium">
+                                <CheckCircle2 size={18} className="text-green-500 shrink-0" />
+                                <span className="text-sm">{feature}</span>
+                             </div>
+                           ))}
+                        </div>
+                     </div>
+                  </div>
+                )}
+
              </div>
            ))}
         </div>

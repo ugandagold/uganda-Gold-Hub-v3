@@ -6,37 +6,37 @@ const projects = [
     title: 'Terrablast Resource Management & Blasting',
     location: 'Australia',
     year: '2023-2026',
-    image: 'https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1599707367072-cd6cf66f232e?q=80&w=800&auto=format&fit=crop'
   },
   {
     title: 'Minerex Site Resource Management & Survey',
     location: 'Canada',
     year: '2022-2025',
-    image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=800&auto=format&fit=crop'
   },
   {
     title: 'Coreline Advanced Mineral Exploration',
     location: 'South Africa',
     year: '2021-2024',
-    image: 'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?q=80&w=800&auto=format&fit=crop'
   },
   {
     title: 'Orevision Integrated Survey & Extraction',
     location: 'Chile',
     year: '2021-2024',
-    image: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop'
   },
   {
     title: 'Deepcore Strategic High-Risk Site Evaluation',
     location: 'Peru',
     year: '2022-2025',
-    image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1503424886307-b090341d25d1?q=80&w=800&auto=format&fit=crop'
   },
   {
     title: 'Tratalink Mineral Logistics & Site Planning',
     location: 'Mongolia',
     year: '2022-2025',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop'
   }
 ];
 

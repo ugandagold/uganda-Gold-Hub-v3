@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Product } from '../types';
 import { Package, Users, LayoutDashboard, Plus, Trash2, X, ArrowLeft, Loader2, Search, Image as ImageIcon } from 'lucide-react';
@@ -15,7 +14,7 @@ interface Subscriber {
 
 // Mock Data for Dashboard
 const MOCK_PRODUCTS: Product[] = [
-  { id: '1', name: '1kg Gold Bullion (99.9%)', category: 'Bullion', price: 76450.00, originalPrice: 78000.00, image: 'https://images.unsplash.com/photo-1620322880696-e3659ba35d56?q=80&w=600&auto=format&fit=crop', isNew: true },
+  { id: '1', name: '1kg Gold Bullion (99.9%)', category: 'Bullion', price: 76450.00, originalPrice: 78000.00, image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=600&auto=format&fit=crop', isNew: true },
   { id: '2', name: 'Raw Gold Nuggets (22k)', category: 'Raw Gold', price: 68000.00, image: 'https://images.unsplash.com/photo-1608044893318-6e2e33c41486?q=80&w=600&auto=format&fit=crop' },
   { id: '3', name: 'Gold Dust (Unrefined)', category: 'Dust', price: 62000.00, image: 'https://images.unsplash.com/photo-1618413139632-15f091915d11?q=80&w=600&auto=format&fit=crop', isNew: true },
   { id: '4', name: '100g Gold Bar (Minted)', category: 'Bullion', price: 7700.00, image: 'https://images.unsplash.com/photo-1591896966237-7247256e65e9?q=80&w=600&auto=format&fit=crop' },

@@ -9,7 +9,7 @@ const getEnv = (key: string) => {
 
 const apiKey = getEnv('API_KEY');
 
-export const getInteriorDesignAdvice = async (userQuery: string): Promise<string> => {
+export const getGoldMarketAdvice = async (userQuery: string): Promise<string> => {
   if (!apiKey) {
     // Return a polite fallback if no API key is available instead of crashing
     return "I am currently offline. Please contact support directly for assistance.";

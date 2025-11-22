@@ -4,7 +4,7 @@ import { Pickaxe, Gem, ChevronLeft, ChevronRight } from 'lucide-react';
 const slides = [
   { 
     title: 'Ethical Extraction', 
-    image: 'https://images.unsplash.com/photo-1576506542790-512445485a36?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1617713071565-9784922401c3?q=80&w=1600&auto=format&fit=crop',
     description: 'Partnering with local communities for sustainable and safe mining practices.'
   },
   { 
@@ -14,12 +14,12 @@ const slides = [
   },
   { 
     title: 'Secure Vaults', 
-    image: 'https://images.unsplash.com/photo-1585428247990-3248788f8d49?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1620322880696-e3659ba35d56?q=80&w=1600&auto=format&fit=crop',
     description: 'World-class security infrastructure for storage and international logistics.'
   },
   { 
     title: 'Global Logistics', 
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop',
     description: 'Seamless CIF and FOB export procedures to major global hubs.'
   }
 ];

@@ -53,7 +53,7 @@ const SectionFAQ: React.FC = () => {
             {/* Floating image for visual balance matching screenshot */}
             <div className="hidden lg:block absolute -right-24 top-48 z-10">
                <div className="w-64 h-72 rounded-[2.5rem] overflow-hidden shadow-2xl rotate-6 border-4 border-white">
-                  <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=600&auto=format&fit=crop" alt="Logistics" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=600&auto=format&fit=crop" alt="Gold Bars" className="w-full h-full object-cover" />
                </div>
             </div>
           </div>

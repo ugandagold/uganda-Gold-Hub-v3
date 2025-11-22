@@ -4,19 +4,19 @@ import { ArrowRight } from 'lucide-react';
 const posts = [
   {
     title: 'Understanding the critical role of geophysical surveys',
-    image: 'https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1599707367072-cd6cf66f232e?q=80&w=600&auto=format&fit=crop',
     date: '23 April',
     category: 'Geology'
   },
   {
     title: 'Mastering survey techniques in mineral exploration',
-    image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop',
     date: '15 April',
     category: 'Techniques'
   },
   {
     title: 'Creative approaches to site mapping and documentation',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=600&auto=format&fit=crop',
     date: '15 April',
     category: 'Innovation'
   }

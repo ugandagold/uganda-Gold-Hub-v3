@@ -1,15 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play } from 'lucide-react';
 
+const heroSlides = [
+  {
+    image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=2940&auto=format&fit=crop',
+    label: 'Premium Sourcing'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?q=80&w=2940&auto=format&fit=crop',
+    label: 'Mubende Mines, Uganda'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1639411677420-b903ce0920c4?q=80&w=2940&auto=format&fit=crop',
+    label: 'Processing Facility, Buhweju'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1599707367072-cd6cf66f232e?q=80&w=2940&auto=format&fit=crop',
+    label: 'Karamoja Gold Belt'
+  }
+];
+
 const Hero: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="relative w-full min-h-screen md:h-[110vh] md:min-h-[800px] overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=2940&auto=format&fit=crop')` }} 
-      >
-        <div className="absolute inset-0 bg-black/30 md:bg-black/20"></div>
+    <div className="relative w-full min-h-screen md:h-[110vh] md:min-h-[800px] overflow-hidden bg-stone-900">
+      {/* Background Carousel */}
+      {heroSlides.map((slide, index) => (
+        <div 
+          key={index}
+          className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+            index === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url('${slide.image}')` }} 
+        >
+          <div className="absolute inset-0 bg-black/40 md:bg-black/30"></div>
+        </div>
+      ))}
+
+      {/* Location/Slide Indicator */}
+      <div className="absolute bottom-8 right-6 md:right-12 z-20 flex items-center gap-3 animate-fade-in-up">
+          <span className="text-white/60 text-xs font-serif italic tracking-wider">{heroSlides[currentSlide].label}</span>
+          <div className="flex gap-1.5">
+            {heroSlides.map((_, idx) => (
+                <button 
+                    key={idx} 
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`h-1 rounded-full transition-all duration-500 ${idx === currentSlide ? 'w-8 bg-amber-500' : 'w-2 bg-white/30 hover:bg-white/50'}`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                />
+            ))}
+          </div>
       </div>
 
       <div className="relative container mx-auto px-6 h-full flex flex-col justify-end pb-24 md:pb-32 pt-32 md:pt-0">
@@ -18,7 +66,7 @@ const Hero: React.FC = () => {
         <div className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 md:translate-y-0 md:bottom-40 md:top-auto md:right-12 bg-white/20 backdrop-blur-xl border border-white/30 p-4 rounded-3xl max-w-xs shadow-2xl animate-fade-in-up z-20">
           <div className="flex gap-4 items-center">
             <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-white flex items-center justify-center">
-              <img src="https://images.unsplash.com/photo-1620322880696-e3659ba35d56?q=80&w=600&auto=format&fit=crop" alt="Gold Bar" className="w-full h-full object-cover mix-blend-multiply" />
+              <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=600&auto=format&fit=crop" alt="Gold Bar" className="w-full h-full object-cover" />
             </div>
             <div className="text-white">
               <h4 className="font-serif font-semibold text-lg leading-tight">1kg Gold Bullion (99.9%)</h4>

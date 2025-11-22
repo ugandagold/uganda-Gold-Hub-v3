@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Pause, Volume2 } from 'lucide-react';
 
 const tabs = [
-  { id: 'heritage', label: 'Mineral Wealth', content: 'Uganda sits on a vast, mineral-rich geological belt. Our hub taps into this natural abundance, connecting artisanal discoveries with the global marketplace.', image: 'https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?q=80&w=1000&auto=format&fit=crop' },
-  { id: 'compliance', label: 'Full Compliance', content: 'We adhere to strict OECD Due Diligence Guidance. Every trade is documented, taxed, and certified by the Department of Geological Survey and Mines.', image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop' },
-  { id: 'community', label: 'Community', content: 'We believe in fair trade. A portion of our proceeds is reinvested into mining communities to improve safety standards and local infrastructure.', image: 'https://images.unsplash.com/photo-1605218427368-35b0f966f815?q=80&w=1000&auto=format&fit=crop' },
+  { id: 'heritage', label: 'Mineral Wealth', content: 'Uganda sits on a vast, mineral-rich geological belt. Our hub taps into this natural abundance, connecting artisanal discoveries with the global marketplace.', image: 'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=1000&auto=format&fit=crop' },
+  { id: 'compliance', label: 'Full Compliance', content: 'We adhere to strict OECD Due Diligence Guidance. Every trade is documented, taxed, and certified by the Department of Geological Survey and Mines.', image: 'https://images.unsplash.com/photo-1620322880696-e3659ba35d56?q=80&w=1000&auto=format&fit=crop' },
+  { id: 'community', label: 'Community', content: 'We believe in fair trade. A portion of our proceeds is reinvested into mining communities to improve safety standards and local infrastructure.', image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=1000&auto=format&fit=crop' },
 ];
 
 const SectionStory: React.FC = () => {
@@ -59,7 +59,7 @@ const SectionStory: React.FC = () => {
           <div className="lg:absolute lg:left-[35%] lg:top-1/2 lg:-translate-y-1/2 lg:z-20 w-full max-w-sm order-last lg:order-none">
             <div className="bg-[#EAE8E2] p-6 rounded-[2rem] shadow-xl animate-fade-in">
                <div className="h-40 overflow-hidden mb-6 rounded-2xl relative">
-                 <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=600&auto=format&fit=crop" alt="Detail" className="w-full h-full object-cover" />
+                 <img src="https://images.unsplash.com/photo-1618413139632-15f091915d11?q=80&w=600&auto=format&fit=crop" alt="Detail" className="w-full h-full object-cover" />
                  <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                     <span className="text-amber-400 font-serif text-3xl drop-shadow-md">UG Hub</span>
                  </div>
