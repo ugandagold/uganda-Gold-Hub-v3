@@ -4,22 +4,22 @@ import { Pickaxe, Gem, ChevronLeft, ChevronRight } from 'lucide-react';
 const slides = [
   { 
     title: 'Ethical Extraction', 
-    image: 'https://images.unsplash.com/photo-1617713071565-9784922401c3?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(2).png?raw=true',
     description: 'Partnering with local communities for sustainable and safe mining practices.'
   },
   { 
     title: 'High Purity Refining', 
-    image: 'https://images.unsplash.com/photo-1639411677420-b903ce0920c4?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(1).png?raw=true',
     description: 'State-of-the-art laboratories ensuring 99.9% purity in every bar.'
   },
   { 
     title: 'Secure Vaults', 
-    image: 'https://images.unsplash.com/photo-1620322880696-e3659ba35d56?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(3).png?raw=true',
     description: 'World-class security infrastructure for storage and international logistics.'
   },
   { 
     title: 'Global Logistics', 
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/container-operation-port-series-min.jpg?raw=true',
     description: 'Seamless CIF and FOB export procedures to major global hubs.'
   }
 ];
