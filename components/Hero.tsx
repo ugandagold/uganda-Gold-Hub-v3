@@ -3,19 +3,7 @@ import { Play } from 'lucide-react';
 
 const heroSlides = [
   {
-    image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=2940&auto=format&fit=crop',
-    label: 'Premium Sourcing'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?q=80&w=2940&auto=format&fit=crop',
-    label: 'Mubende Mines, Uganda'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1639411677420-b903ce0920c4?q=80&w=2940&auto=format&fit=crop',
-    label: 'Processing Facility, Buhweju'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1599707367072-cd6cf66f232e?q=80&w=2940&auto=format&fit=crop',
+    image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(4).png?raw=true',
     label: 'Karamoja Gold Belt'
   }
 ];
@@ -66,7 +54,7 @@ const Hero: React.FC = () => {
         <div className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 md:translate-y-0 md:bottom-40 md:top-auto md:right-12 bg-white/20 backdrop-blur-xl border border-white/30 p-4 rounded-3xl max-w-xs shadow-2xl animate-fade-in-up z-20">
           <div className="flex gap-4 items-center">
             <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-white flex items-center justify-center">
-              <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=600&auto=format&fit=crop" alt="Gold Bar" className="w-full h-full object-cover" />
+              <img src="https://github.com/ugandagold/ugandagoldhubpics/blob/main/imgi_6_goooo-m5KL1R1L7BSQGEo1-1.webp?raw=true" alt="Gold Bar" className="w-full h-full object-cover" />
             </div>
             <div className="text-white">
               <h4 className="font-serif font-semibold text-lg leading-tight">1kg Gold Bullion (99.9%)</h4>

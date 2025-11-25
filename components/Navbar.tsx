@@ -47,8 +47,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
             <button onClick={() => handleNavClick('home')} className={linkClass('home')}>Home</button>
             <button onClick={() => handleNavClick('about')} className={linkClass('about')}>About Us</button>
             <button onClick={() => handleNavClick('service')} className={linkClass('service')}>Service</button>
-            <button onClick={() => handleNavClick('projects')} className={linkClass('projects')}>Projects</button>
-            <button onClick={() => handleNavClick('blog')} className={linkClass('blog')}>Blog</button>
             <button onClick={() => handleNavClick('contact')} className={linkClass('contact')}>Contact Us</button>
           </div>
         </div>
@@ -72,8 +70,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
           <button onClick={() => handleNavClick('home')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">Home</button>
           <button onClick={() => handleNavClick('about')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">About Us</button>
           <button onClick={() => handleNavClick('service')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">Service</button>
-          <button onClick={() => handleNavClick('projects')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">Projects</button>
-          <button onClick={() => handleNavClick('blog')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">Blog</button>
           <button onClick={() => handleNavClick('contact')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">Contact Us</button>
         </div>
       )}

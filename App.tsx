@@ -7,11 +7,9 @@ import SectionManifesto from './components/SectionManifesto';
 import SectionServices from './components/SectionServices';
 import SectionMarketData from './components/SectionMarketData';
 import SectionProcess from './components/SectionProcess';
-import SectionProjects from './components/SectionProjects';
 import SectionStory from './components/SectionStory';
 import SectionClients from './components/SectionClients';
 import SectionResources from './components/SectionResources';
-import SectionBlog from './components/SectionBlog';
 import SectionContact from './components/SectionContact';
 import SectionFAQ from './components/SectionFAQ';
 import Footer from './components/Footer';
@@ -19,7 +17,7 @@ import DesignAssistant from './components/DesignAssistant';
 import Dashboard from './components/Dashboard';
 import LiveTicker from './components/LiveTicker';
 
-type ViewState = 'home' | 'about' | 'service' | 'projects' | 'blog' | 'contact' | 'dashboard';
+type ViewState = 'home' | 'about' | 'service' | 'contact' | 'dashboard';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewState>('home');
@@ -45,11 +43,9 @@ const App: React.FC = () => {
             <SectionServices compact={true} onNavigate={handleNavigate} />
             <SectionManifesto />
             <SectionProcess />
-            <SectionProjects />
             <SectionResources />
             <SectionClients />
             <SectionFAQ />
-            <SectionBlog />
             <SectionContact />
           </>
         );
@@ -81,31 +77,6 @@ const App: React.FC = () => {
             <SectionProcess />
             <SectionMarketData />
             <SectionResources />
-          </>
-        );
-
-      case 'projects':
-        return (
-          <>
-             <PageHeader 
-              title="Global Operations" 
-              subtitle="Case Studies"
-              image="https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?q=80&w=2000&auto=format&fit=crop" 
-            />
-            <SectionProjects />
-            <SectionClients />
-          </>
-        );
-
-      case 'blog':
-        return (
-          <>
-             <PageHeader 
-              title="Market Insights" 
-              subtitle="News & Updates"
-              image="https://images.unsplash.com/photo-1601121853354-e6e866bd2bac?q=80&w=2000&auto=format&fit=crop" 
-            />
-            <SectionBlog />
           </>
         );
 

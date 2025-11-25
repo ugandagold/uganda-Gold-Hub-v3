@@ -44,11 +44,11 @@ const SectionClients: React.FC = () => {
                 "Delivered what we needed on time, with professionalism. Their team made the entire process seamless from start to finish."
               </p>
               <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 rounded-full overflow-hidden bg-stone-700">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="Liam James" className="w-full h-full object-cover" />
+                 <div className="w-12 h-12 rounded-full bg-stone-700 flex items-center justify-center text-amber-500 font-serif font-bold text-xl">
+                    L
                  </div>
                  <div>
-                    <h4 className="font-bold text-white text-sm">Liam James</h4>
+                    <h4 className="font-bold text-white text-sm">Liam J.</h4>
                     <p className="text-xs text-stone-500">Project Manager, Mining CORE</p>
                  </div>
                  <Quote className="ml-auto text-stone-700" size={32} />
@@ -68,11 +68,11 @@ const SectionClients: React.FC = () => {
                 "Their team's deep technical expertise, innovative thinking and hands-on approach made a huge difference in our complex project."
               </p>
               <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 rounded-full overflow-hidden bg-stone-700">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" alt="Noah Alexander" className="w-full h-full object-cover" />
+                 <div className="w-12 h-12 rounded-full bg-stone-700 flex items-center justify-center text-amber-500 font-serif font-bold text-xl">
+                    N
                  </div>
                  <div>
-                    <h4 className="font-bold text-white text-sm">Noah Alexander</h4>
+                    <h4 className="font-bold text-white text-sm">Noah A.</h4>
                     <p className="text-xs text-stone-500">Operations Lead, ResourceWorks</p>
                  </div>
                  <Quote className="ml-auto text-stone-700" size={32} />
@@ -92,11 +92,11 @@ const SectionClients: React.FC = () => {
                 "Experience backed by real trust. We have found a partner that values integrity as much as yield."
               </p>
               <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 rounded-full overflow-hidden bg-stone-700">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" alt="Leon Eskenedy" className="w-full h-full object-cover" />
+                 <div className="w-12 h-12 rounded-full bg-stone-700 flex items-center justify-center text-amber-500 font-serif font-bold text-xl">
+                    L
                  </div>
                  <div>
-                    <h4 className="font-bold text-white text-sm">Leon Eskenedy</h4>
+                    <h4 className="font-bold text-white text-sm">Leon E.</h4>
                     <p className="text-xs text-stone-500">Director, Global Metals</p>
                  </div>
                  <Quote className="ml-auto text-stone-700" size={32} />
