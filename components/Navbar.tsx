@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
   onNavigate: (page: string) => void;
@@ -24,6 +24,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
     window.scrollTo(0, 0);
   };
 
+  const handleWhatsApp = () => {
+    window.open('https://wa.me/256761389093', '_blank');
+  };
+
   const linkClass = (page: string) => 
     `cursor-pointer transition-colors ${currentPage === page ? 'text-amber-600 font-semibold' : 'text-stone-900 hover:text-amber-600'}`;
 
@@ -36,10 +40,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
             className="flex items-center gap-3 cursor-pointer" 
             onClick={() => handleNavClick('home')}
           >
-             <div className="w-10 h-10 bg-transparent border-2 border-amber-500 rounded-full flex items-center justify-center">
+             <div className="w-10 h-10 bg-transparent border-2 border-amber-500 rounded-full flex items-center justify-center shrink-0">
                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-amber-600"><path d="m2 9 3-3 3 3"/><path d="M13 6h7"/><path d="M8 19h13"/><path d="m16 16 3 3-3 3"/></svg>
              </div>
-             <h1 className="text-2xl font-serif font-bold tracking-tight text-amber-500 uppercase">ZORION</h1> 
+             <h1 className="text-xl md:text-2xl font-serif font-bold tracking-tight text-amber-500 uppercase">Uganda Gold Hub</h1> 
           </div>
 
           {/* Desktop Menu */}
@@ -53,10 +57,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
 
         <div className="flex items-center gap-6">
           <button 
-            onClick={() => handleNavClick('contact')}
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 border border-stone-800 rounded-none text-xs font-bold uppercase tracking-widest hover:bg-amber-500 hover:border-amber-500 hover:text-stone-900 transition-all"
+            onClick={handleWhatsApp}
+            className="hidden md:flex items-center gap-2 px-6 py-2.5 border border-stone-800 rounded-none text-xs font-bold uppercase tracking-widest hover:bg-green-600 hover:border-green-600 hover:text-white transition-all text-stone-900"
           >
-            Call Us
+            <MessageCircle size={16} />
+            WhatsApp
           </button>
           <button className="lg:hidden text-stone-900" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -71,6 +76,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
           <button onClick={() => handleNavClick('about')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">About Us</button>
           <button onClick={() => handleNavClick('service')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">Service</button>
           <button onClick={() => handleNavClick('contact')} className="text-lg font-serif text-left text-stone-900 hover:text-amber-600">Contact Us</button>
+          <button onClick={handleWhatsApp} className="text-lg font-serif text-left text-green-600 hover:text-green-700 font-bold flex items-center gap-2">
+            <MessageCircle size={20} />
+            WhatsApp Us
+          </button>
         </div>
       )}
     </nav>

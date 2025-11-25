@@ -56,7 +56,7 @@ const App: React.FC = () => {
             <PageHeader 
               title="Who We Are" 
               subtitle="Legacy & Integrity"
-              image="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?q=80&w=2000&auto=format&fit=crop" 
+              image="https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(1).png?raw=true" 
             />
             <SectionStats />
             <SectionStory />
@@ -71,7 +71,7 @@ const App: React.FC = () => {
              <PageHeader 
               title="Our Expertise" 
               subtitle="Technical & Logistics"
-              image="https://images.unsplash.com/photo-1639411677420-b903ce0920c4?q=80&w=2000&auto=format&fit=crop" 
+              image="https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(2).png?raw=true" 
             />
             <SectionServices compact={false} />
             <SectionProcess />
@@ -86,7 +86,7 @@ const App: React.FC = () => {
              <PageHeader 
               title="Contact Us" 
               subtitle="Get In Touch"
-              image="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" 
+              image="https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(6).png?raw=true" 
             />
             <SectionContact />
             <SectionFAQ />

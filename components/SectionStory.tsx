@@ -3,7 +3,7 @@ import { Pause, Volume2 } from 'lucide-react';
 
 const tabs = [
   { id: 'heritage', label: 'Mineral Wealth', content: 'Uganda sits on a vast, mineral-rich geological belt. Our hub taps into this natural abundance, connecting artisanal discoveries with the global marketplace.', image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(6).png?raw=true' },
-  { id: 'compliance', label: 'Full Compliance', content: 'We adhere to strict OECD Due Diligence Guidance. Every trade is documented, taxed, and certified by the Department of Geological Survey and Mines.', image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(7).png?raw=true' },
+  { id: 'compliance', label: 'Full Compliance', content: 'We adhere to strict international compliance standards. Every trade is documented, taxed, and certified by the Department of Geological Survey and Mines.', image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(7).png?raw=true' },
   { id: 'community', label: 'Community', content: 'We believe in fair trade. A portion of our proceeds is reinvested into mining communities to improve safety standards and local infrastructure.', image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/download%20(1).jpg?raw=true' },
 ];
 

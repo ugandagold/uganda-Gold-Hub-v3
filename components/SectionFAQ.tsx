@@ -5,7 +5,7 @@ import { FAQItem } from '../types';
 const fallbackFaqs: FAQItem[] = [
   { question: 'What is the minimum purity of gold you export?', answer: 'We primarily deal in 22k raw gold (92%+) and refined 24k bullion (99.9%). All exports are accompanied by assay reports from government-certified laboratories.' },
   { question: 'How do you handle international shipping and insurance?', answer: 'We use secure logistics partners (Brinks, G4S) for all international shipments. All cargo is fully insured (CIF) until it reaches the buyer\'s designated customs airport.' },
-  { question: 'Do you comply with OECD Due Diligence Guidance?', answer: 'Yes. We are strictly conflict-free. All our gold is traceable to licensed artisanal mines in Uganda, and we provide full chain-of-custody documentation.' },
+  { question: 'Do you comply with international sourcing standards?', answer: 'Yes. We are strictly conflict-free. All our gold is traceable to licensed artisanal mines in Uganda, and we provide full chain-of-custody documentation.' },
   { question: 'What are your payment terms?', answer: 'We generally operate on T/T (Telegraphic Transfer). For large contracts, we can utilize SBLC or DLC banking instruments subject to compliance checks.' },
   { question: 'Can buyers visit the mining sites?', answer: 'Qualified investors and buyers are welcome to visit our operations in Uganda. We facilitate site visits to build trust and transparency.' },
   { question: 'What export documentation do you provide?', answer: 'Every shipment includes the Certificate of Origin, Export Permit, Assay Report, Commercial Invoice, and Packing List.' },

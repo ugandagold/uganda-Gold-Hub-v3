@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Download, FileText, ShieldCheck, Globe } from 'lucide-react';
+import { FileText, ShieldCheck, Globe, MessageCircle } from 'lucide-react';
 
 const resources = [
   {
@@ -24,7 +24,7 @@ const resources = [
     desc: 'Know Your Customer & Client Information Sheet for compliance.'
   },
   {
-    title: 'OECD Due Diligence Policy',
+    title: 'Sourcing Compliance Policy',
     type: 'PDF',
     size: '3.8 MB',
     icon: <FileText size={24} />,
@@ -57,17 +57,23 @@ const SectionResources: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
            <div>
               <h2 className="text-sm font-bold text-amber-600 uppercase tracking-widest mb-2">Compliance Center</h2>
-              <h3 className="text-3xl md:text-4xl font-serif text-stone-900">Downloadable Resources</h3>
+              <h3 className="text-3xl md:text-4xl font-serif text-stone-900">Document Hub</h3>
            </div>
            <p className="text-stone-500 max-w-md text-sm md:text-right">
-             To expedite your onboarding, please use our standard templates. All documents must be submitted via the secure portal or corporate email.
+             To ensure security and verify intent, all compliance documents must be requested directly. Click a document to request it via our secure WhatsApp channel.
            </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
            {resources.map((item, idx) => (
-             <div key={idx} className="bg-white p-8 rounded-3xl border border-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-                <div className="w-12 h-12 rounded-2xl bg-stone-100 text-stone-500 flex items-center justify-center mb-6 group-hover:bg-amber-500 group-hover:text-stone-900 transition-colors">
+             <a 
+               key={idx} 
+               href={`https://wa.me/256761389093?text=${encodeURIComponent(`Hello, I would like to request the ${item.title} from Uganda Gold Hub.`)}`}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="bg-white p-8 rounded-3xl border border-stone-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer block"
+             >
+                <div className="w-12 h-12 rounded-2xl bg-stone-100 text-stone-500 flex items-center justify-center mb-6 group-hover:bg-green-500 group-hover:text-white transition-colors">
                    {item.icon}
                 </div>
                 <h4 className="font-serif text-lg font-bold text-stone-900 mb-2">{item.title}</h4>
@@ -76,11 +82,14 @@ const SectionResources: React.FC = () => {
                 <div className="flex items-center justify-between pt-6 border-t border-stone-100">
                    <div className="flex gap-2 items-center">
                       <span className="text-[10px] font-bold bg-stone-100 text-stone-500 px-2 py-1 rounded">{item.type}</span>
-                      <span className="text-[10px] text-stone-400">{item.size}</span>
+                      <span className="text-[10px] text-stone-400">Verified</span>
                    </div>
-                   <Download size={18} className="text-stone-400 group-hover:text-amber-600 transition-colors" />
+                   <div className="flex items-center gap-2 text-stone-400 group-hover:text-green-600 transition-colors">
+                      <span className="text-[10px] font-bold uppercase tracking-wider hidden group-hover:block">Request</span>
+                      <MessageCircle size={18} />
+                   </div>
                 </div>
-             </div>
+             </a>
            ))}
         </div>
       </div>

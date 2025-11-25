@@ -34,9 +34,9 @@ const SectionStats: React.FC = () => {
         const ease = 1 - Math.pow(1 - progress, 3); 
         
         setCounts({
-          sites: Math.min(Math.floor(35 * ease), 35),
+          sites: Math.min(Math.floor(12 * ease), 12),
           hours: Math.min(Math.floor(24 * ease), 24),
-          tons: Math.min(Math.floor(120 * ease), 120)
+          tons: Math.min(Math.floor(20 * ease), 20)
         });
 
         if (step >= steps) clearInterval(timer);
@@ -53,7 +53,7 @@ const SectionStats: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
           <div className="p-4">
             <p className="text-5xl md:text-6xl font-serif font-bold text-amber-500 mb-2">
-              {counts.sites}+
+              {counts.sites}
             </p>
             <p className="text-sm md:text-base font-medium uppercase tracking-widest text-stone-300">Active Mining Sites</p>
           </div>
@@ -65,7 +65,7 @@ const SectionStats: React.FC = () => {
           </div>
           <div className="p-4">
             <p className="text-5xl md:text-6xl font-serif font-bold text-amber-500 mb-2">
-              {counts.tons}M+
+              {counts.tons}+
             </p>
             <p className="text-sm md:text-base font-medium uppercase tracking-widest text-stone-300">Tons Processed Annually</p>
           </div>

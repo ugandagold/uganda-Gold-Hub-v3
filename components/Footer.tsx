@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Check, Loader2, Lock } from 'lucide-react';
+import { ArrowRight, Check, Loader2, Lock, Phone, Mail } from 'lucide-react';
 
 interface FooterProps {
   onAdminClick?: () => void;
@@ -64,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
           </div>
 
           {/* Links Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-xs">
+          <div className="grid grid-cols-2 gap-12 text-xs">
              <div>
                <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Trading</h4>
                <ul className="space-y-4">
@@ -74,30 +74,24 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
                  <li><a href="#" className="hover:text-amber-400 transition-colors">Assay Services</a></li>
                </ul>
              </div>
+             
              <div>
-               <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Company</h4>
+               <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Contact</h4>
                <ul className="space-y-4">
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Manifesto</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Leadership</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Sustainability</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Careers</a></li>
-               </ul>
-             </div>
-             <div>
-               <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Legal</h4>
-               <ul className="space-y-4">
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Export Policy</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Terms of Service</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Privacy</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Compliance</a></li>
-               </ul>
-             </div>
-             <div>
-               <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Social</h4>
-               <ul className="space-y-4">
+                 <li>
+                    <a href="tel:+256761389093" className="flex items-center gap-2 hover:text-amber-400 transition-colors">
+                        <Phone size={14} className="text-amber-500" />
+                        <span className="font-bold">+256 761 389 093</span>
+                    </a>
+                 </li>
+                 <li>
+                    <a href="mailto:ugandagoldhub@gmail.com" className="flex items-center gap-2 hover:text-amber-400 transition-colors break-all">
+                        <Mail size={14} className="text-amber-500 shrink-0" />
+                        <span className="font-bold">ugandagoldhub@gmail.com</span>
+                    </a>
+                 </li>
                  <li><a href="#" className="hover:text-amber-400 transition-colors">LinkedIn</a></li>
                  <li><a href="#" className="hover:text-amber-400 transition-colors">Twitter</a></li>
-                 <li><a href="#" className="hover:text-amber-400 transition-colors">Instagram</a></li>
                </ul>
              </div>
           </div>
