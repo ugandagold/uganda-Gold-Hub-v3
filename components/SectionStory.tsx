@@ -35,18 +35,18 @@ const SectionStory: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className={`py-20 md:py-32 bg-[#fafaf9] transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section ref={sectionRef} className={`py-16 md:py-32 bg-[#fafaf9] transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 relative">
           
-          {/* Left: Navigation */}
+          {/* Left: Navigation (Scrollable on mobile) */}
           <div className="w-full lg:w-1/3 z-10">
-            <div className="flex flex-col items-start gap-4 md:gap-6">
+            <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible items-start gap-6 md:gap-6 pb-4 lg:pb-0 no-scrollbar">
               {tabs.map((tab, index) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(index)}
-                  className={`text-2xl md:text-3xl lg:text-4xl font-serif transition-all duration-300 flex items-center gap-4 ${activeTab === index ? 'text-stone-900' : 'text-stone-300 hover:text-stone-400'}`}
+                  className={`text-xl md:text-3xl lg:text-4xl font-serif transition-all duration-300 flex items-center gap-4 whitespace-nowrap ${activeTab === index ? 'text-stone-900' : 'text-stone-300 hover:text-stone-400'}`}
                 >
                   {activeTab === index && <span className="w-2 h-2 rounded-full bg-amber-500"></span>}
                   {tab.label}
@@ -55,11 +55,11 @@ const SectionStory: React.FC = () => {
             </div>
           </div>
 
-          {/* Center: Floating Card */}
-          <div className="lg:absolute lg:left-[35%] lg:top-1/2 lg:-translate-y-1/2 lg:z-20 w-full max-w-sm order-last lg:order-none">
-            <div className="bg-[#EAE8E2] p-6 rounded-[2rem] shadow-xl animate-fade-in">
+          {/* Center: Floating Card (Stacks on mobile) */}
+          <div className="w-full lg:absolute lg:left-[35%] lg:top-1/2 lg:-translate-y-1/2 lg:z-20 max-w-sm order-2 lg:order-none">
+            <div className="bg-[#EAE8E2] p-6 rounded-[2rem] shadow-xl animate-fade-in mx-auto">
                <div className="h-40 overflow-hidden mb-6 rounded-2xl relative">
-                 <img src="https://github.com/ugandagold/ugandagoldhubpics/blob/main/bg2.webp?raw=true" alt="Detail" className="w-full h-full object-cover" />
+                 <img src="https://github.com/ugandagold/ugandagoldhubpics/blob/main/bg2.webp?raw=true" alt="Detail" className="w-full h-full object-cover" loading="lazy" />
                  <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                     <span className="text-amber-400 font-serif text-3xl drop-shadow-md">UG Hub</span>
                  </div>
@@ -71,12 +71,13 @@ const SectionStory: React.FC = () => {
           </div>
 
           {/* Right: Large Image/Video */}
-          <div className="lg:w-1/2 w-full flex justify-end">
-            <div className="relative h-[400px] md:h-[600px] w-full max-w-md rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+          <div className="lg:w-1/2 w-full flex justify-end order-1 lg:order-none">
+            <div className="relative h-[300px] md:h-[600px] w-full max-w-md rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white mx-auto lg:mx-0">
                <img 
                  src={tabs[activeTab].image} 
                  alt={tabs[activeTab].label} 
                  className="w-full h-full object-cover transition-all duration-500"
+                 loading="lazy"
                />
                <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center">
                  <div className="flex gap-2 text-white text-xs font-medium">

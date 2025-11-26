@@ -60,7 +60,7 @@ const SectionManifesto: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} className={`py-20 md:py-32 bg-[#fafaf9] transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section ref={sectionRef} className={`py-16 md:py-32 bg-[#fafaf9] transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto mb-16 md:mb-24">
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-serif leading-[1.4] text-stone-900">
@@ -82,14 +82,14 @@ const SectionManifesto: React.FC = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative h-[400px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl group select-none">
+        <div className="relative h-[500px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl group select-none">
             {/* Slides */}
             {slides.map((slide, index) => (
                 <div 
                     key={index}
                     className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${index === currentIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-105 z-0'}`}
                 >
-                    <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
+                    <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" loading="lazy" />
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-black/30 md:bg-black/20"></div>
                     
@@ -108,17 +108,17 @@ const SectionManifesto: React.FC = () => {
                 </div>
             ))}
 
-            {/* Controls */}
+            {/* Controls - Optimized for Touch */}
             <button 
                 onClick={prevSlide} 
-                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition-all hover:scale-110"
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition-all active:scale-95"
                 aria-label="Previous slide"
             >
                 <ChevronLeft size={28} />
             </button>
             <button 
                 onClick={nextSlide} 
-                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition-all hover:scale-110"
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-16 md:h-16 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition-all active:scale-95"
                 aria-label="Next slide"
             >
                 <ChevronRight size={28} />

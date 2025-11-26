@@ -23,21 +23,21 @@ const SectionContact: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-[#fafaf9]">
+    <section className="py-16 md:py-24 bg-[#fafaf9]">
       <div className="container mx-auto px-6">
-         <div className="max-w-3xl mx-auto bg-stone-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
+         <div className="max-w-3xl mx-auto bg-stone-900 rounded-[2.5rem] p-6 md:p-12 shadow-2xl">
             <div className="text-center mb-10 flex flex-col items-center gap-4">
                <div>
                   <h2 className="text-3xl md:text-4xl font-serif text-white mb-2">Get in Touch</h2>
                   <p className="text-stone-400 text-sm">Fill out the form below to reach our team.</p>
                </div>
                
-               <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-center mt-2">
+               <div className="flex flex-col md:flex-row gap-4 md:gap-12 items-center mt-2">
                   <a href="tel:+256761389093" className="inline-flex items-center gap-2 text-xl md:text-2xl font-serif text-amber-500 hover:text-amber-400 transition-colors">
                      <Phone size={24} />
                      <span>+256 761 389 093</span>
                   </a>
-                  <a href="mailto:ugandagoldhub@gmail.com" className="inline-flex items-center gap-2 text-xl md:text-2xl font-serif text-amber-500 hover:text-amber-400 transition-colors">
+                  <a href="mailto:ugandagoldhub@gmail.com" className="inline-flex items-center gap-2 text-base md:text-2xl font-serif text-amber-500 hover:text-amber-400 transition-colors">
                      <Mail size={24} />
                      <span>ugandagoldhub@gmail.com</span>
                   </a>
@@ -54,7 +54,7 @@ const SectionContact: React.FC = () => {
                        value={formData.name}
                        onChange={handleChange}
                        placeholder="John Doe" 
-                       className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" 
+                       className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors text-base" 
                        required
                      />
                   </div>
@@ -66,7 +66,7 @@ const SectionContact: React.FC = () => {
                        value={formData.company}
                        onChange={handleChange}
                        placeholder="Global Mining Ltd." 
-                       className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" 
+                       className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors text-base" 
                      />
                   </div>
                </div>
@@ -80,7 +80,7 @@ const SectionContact: React.FC = () => {
                        value={formData.phone}
                        onChange={handleChange}
                        placeholder="(+256) 761 389 093" 
-                       className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" 
+                       className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors text-base" 
                      />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -89,7 +89,7 @@ const SectionContact: React.FC = () => {
                        name="inquiryType"
                        value={formData.inquiryType}
                        onChange={handleChange}
-                       className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors appearance-none"
+                       className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors appearance-none text-base"
                      >
                         <option value="Purchase Gold">Purchase Gold</option>
                         <option value="Sell / Mine Partnership">Sell / Mine Partnership</option>
@@ -108,7 +108,7 @@ const SectionContact: React.FC = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Subject" 
-                    className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors" 
+                    className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors text-base" 
                   />
                </div>
 
@@ -120,7 +120,7 @@ const SectionContact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="How can we help you?" 
-                    className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-stone-800 border border-stone-700 text-white px-6 py-4 rounded-xl focus:outline-none focus:border-amber-500 transition-colors text-base"
                   ></textarea>
                </div>
 

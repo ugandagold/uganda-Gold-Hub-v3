@@ -1,51 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Play } from 'lucide-react';
 
-const heroSlides = [
-  {
-    image: 'https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(4).png?raw=true',
-    label: 'Karamoja Gold Belt'
-  }
-];
-
 const Hero: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="relative w-full min-h-screen md:h-[110vh] md:min-h-[800px] overflow-hidden bg-stone-900">
-      {/* Background Carousel */}
-      {heroSlides.map((slide, index) => (
-        <div 
-          key={index}
-          className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{ backgroundImage: `url('${slide.image}')` }} 
-        >
-          <div className="absolute inset-0 bg-black/40 md:bg-black/30"></div>
-        </div>
-      ))}
-
-      {/* Location/Slide Indicator */}
-      <div className="absolute bottom-8 right-6 md:right-12 z-20 flex items-center gap-3 animate-fade-in-up">
-          <span className="text-white/60 text-xs font-serif italic tracking-wider">{heroSlides[currentSlide].label}</span>
-          <div className="flex gap-1.5">
-            {heroSlides.map((_, idx) => (
-                <button 
-                    key={idx} 
-                    onClick={() => setCurrentSlide(idx)}
-                    className={`h-1 rounded-full transition-all duration-500 ${idx === currentSlide ? 'w-8 bg-amber-500' : 'w-2 bg-white/30 hover:bg-white/50'}`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                />
-            ))}
-          </div>
+    <div className="relative w-full h-screen min-h-[600px] overflow-hidden bg-stone-900">
+      {/* Single Static Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <img 
+          src="https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(7).png?raw=true" 
+          alt="Uganda Gold Hub Hero" 
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/40 md:bg-black/30"></div>
       </div>
 
       <div className="relative container mx-auto px-6 h-full flex flex-col justify-end pb-24 md:pb-32 pt-32 md:pt-0">
@@ -72,25 +38,25 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="max-w-4xl text-white mt-10 md:mt-20 relative z-10">
-          {/* Glassy Nav Bar */}
-          <div className="inline-flex flex-wrap md:flex-nowrap items-center gap-1 p-1 rounded-2xl md:rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 overflow-hidden">
+          {/* Glassy Nav Bar - Mobile Optimized (Horizontal Scroll) */}
+          <div className="inline-flex flex-nowrap items-center gap-1 p-1 rounded-2xl md:rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 md:mb-8 overflow-x-auto no-scrollbar max-w-full">
              {['BULLION', 'NUGGETS', 'DUST', 'REFINING'].map((item, idx) => (
                <button 
                  key={item} 
-                 className={`flex-1 md:flex-none px-4 md:px-6 py-2 rounded-xl md:rounded-full text-[10px] md:text-xs font-bold tracking-wide transition-all whitespace-nowrap ${idx === 0 ? 'bg-amber-400 text-stone-900 shadow-lg' : 'text-white hover:bg-white/10'}`}
+                 className={`flex-none px-4 md:px-6 py-2 rounded-xl md:rounded-full text-[10px] md:text-xs font-bold tracking-wide transition-all whitespace-nowrap ${idx === 0 ? 'bg-amber-400 text-stone-900 shadow-lg' : 'text-white hover:bg-white/10'}`}
                >
                  {item}
                </button>
              ))}
           </div>
           
-          <h2 className="text-5xl md:text-6xl lg:text-8xl font-serif leading-[0.95] md:leading-[0.9] mb-6 md:mb-8 tracking-tight break-words">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-serif leading-[0.95] md:leading-[0.9] mb-4 md:mb-8 tracking-tight break-words">
             Premium Gold, <br className="hidden md:block" />
             Responsibly Sourced <br className="hidden md:block" />
             from Uganda
           </h2>
           
-          <p className="text-base md:text-lg text-white/90 md:text-white/80 mb-8 md:mb-10 max-w-md leading-relaxed font-light">
+          <p className="text-sm md:text-lg text-white/90 md:text-white/80 mb-8 md:mb-10 max-w-md leading-relaxed font-light">
             Connecting international investors with high-purity gold straight from the heart of Africa. Transparent, secure, and certified.
           </p>
           

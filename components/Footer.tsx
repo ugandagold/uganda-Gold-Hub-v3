@@ -24,15 +24,15 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
   };
 
   return (
-    <footer className="bg-black text-white pt-24 pb-8 overflow-hidden relative z-0">
+    <footer className="bg-black text-white pt-16 md:pt-24 pb-8 overflow-hidden relative z-0">
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Massive Text */}
-         <div className="w-full flex justify-center border-b border-white/10 pb-16 mb-16">
-           <h1 className="text-[18vw] md:text-[20vw] font-serif leading-[0.8] tracking-tight text-center select-none text-amber-500/20">GOLD HUB</h1>
+         <div className="w-full flex justify-center border-b border-white/10 pb-12 md:pb-16 mb-12 md:mb-16">
+           <h1 className="text-[15vw] md:text-[20vw] font-serif leading-[0.8] tracking-tight text-center select-none text-amber-500/20">GOLD HUB</h1>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-between gap-16 mb-20">
+        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-16 mb-16 md:mb-20">
           {/* Newsletter */}
           <div className="max-w-md">
             <h3 className="text-lg font-bold mb-4 text-white">Market Insights</h3>
@@ -46,12 +46,12 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your corporate email" 
                   disabled={status === 'success' || status === 'loading'}
-                  className="bg-transparent border-none outline-none text-white flex-1 placeholder-stone-600 text-sm px-4 py-2 disabled:opacity-50"
+                  className="bg-transparent border-none outline-none text-white flex-1 placeholder-stone-600 text-sm px-4 py-2 disabled:opacity-50 min-w-0"
                 />
                 <button 
                   type="submit"
                   disabled={status === 'success' || status === 'loading'}
-                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${status === 'success' ? 'bg-green-500 text-white' : 'bg-amber-500 text-stone-900 hover:bg-amber-400'}`}
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors shrink-0 ${status === 'success' ? 'bg-green-500 text-white' : 'bg-amber-500 text-stone-900 hover:bg-amber-400'}`}
                 >
                   {status === 'loading' ? <Loader2 size={14} className="animate-spin" /> : 
                    status === 'success' ? <Check size={14} /> : 
@@ -64,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
           </div>
 
           {/* Links Grid */}
-          <div className="grid grid-cols-2 gap-12 text-xs">
+          <div className="grid grid-cols-2 gap-8 md:gap-12 text-xs">
              <div>
                <h4 className="text-stone-500 mb-6 font-bold uppercase tracking-widest">Trading</h4>
                <ul className="space-y-4">
@@ -98,7 +98,7 @@ const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-           <p className="text-stone-500 text-[10px] uppercase tracking-widest">© 2024 Uganda Gold Hub. All rights reserved.</p>
+           <p className="text-stone-500 text-[10px] uppercase tracking-widest text-center md:text-left">© 2024 Uganda Gold Hub. All rights reserved.</p>
            <div className="flex gap-6">
               {onAdminClick && (
                 <button 
