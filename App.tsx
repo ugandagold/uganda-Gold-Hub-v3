@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SectionStats from './components/SectionStats';
 import SectionManifesto from './components/SectionManifesto';
+import SectionAboutDetail from './components/SectionAboutDetail';
 import SectionServices from './components/SectionServices';
 import SectionMarketData from './components/SectionMarketData';
 import SectionProcess from './components/SectionProcess';
@@ -15,6 +16,7 @@ import Footer from './components/Footer';
 import DesignAssistant from './components/DesignAssistant';
 import Dashboard from './components/Dashboard';
 import LiveTicker from './components/LiveTicker';
+import SectionPartners from './components/SectionPartners';
 
 const App: React.FC = () => {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
@@ -57,6 +59,7 @@ const App: React.FC = () => {
         
         <div id="about">
           <SectionStats />
+          <SectionAboutDetail />
           <SectionStory />
           <SectionManifesto />
         </div>
@@ -68,6 +71,7 @@ const App: React.FC = () => {
           <SectionResources />
         </div>
 
+        <SectionPartners />
         <SectionClients />
 
         <div id="contact">

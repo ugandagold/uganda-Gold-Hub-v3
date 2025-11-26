@@ -70,14 +70,16 @@ const SectionFAQ: React.FC = () => {
                     <span className={`text-lg font-medium transition-colors ${openIndex === index ? 'text-stone-900' : 'text-stone-500 group-hover:text-stone-700'}`}>
                       {faq.question}
                     </span>
-                    <span className={`flex items-center justify-center w-8 h-8 rounded-full transition-colors ${openIndex === index ? 'bg-amber-500 text-white' : 'text-stone-300'}`}>
+                    <span className={`flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300 ${openIndex === index ? 'bg-amber-500 text-white' : 'text-stone-300'}`}>
                       {openIndex === index ? <ArrowUp size={14} /> : <ArrowDown size={14} />}
                     </span>
                   </button>
-                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-48 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-                    <p className="text-stone-500 leading-relaxed pr-8 text-sm font-light">
-                      {faq.answer}
-                    </p>
+                  <div className={`grid transition-[grid-template-rows] duration-500 ease-out ${openIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="overflow-hidden">
+                      <p className="text-stone-500 leading-relaxed pr-8 text-sm font-light pt-4">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}

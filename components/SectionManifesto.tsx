@@ -63,6 +63,7 @@ const SectionManifesto: React.FC = () => {
     <section ref={sectionRef} className={`py-16 md:py-32 bg-[#fafaf9] transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto mb-16 md:mb-24">
+          <p className="text-sm font-bold text-amber-600 uppercase tracking-widest mb-4">About Us</p>
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-serif leading-[1.4] text-stone-900">
             We don't just trade gold – we build trust. 
             <span className="inline-flex align-middle mx-1 md:mx-2 p-1 bg-amber-100 rounded-lg rotate-3">
