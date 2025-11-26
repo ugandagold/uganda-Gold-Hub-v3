@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
-  onNavigate: (page: string) => void;
-  currentPage: string;
+  onNavigate: (section: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
+const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -28,18 +27,16 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
     return () => { document.body.style.overflow = 'unset'; };
   }, [mobileMenuOpen]);
 
-  const handleNavClick = (page: string) => {
-    onNavigate(page);
+  const handleNavClick = (section: string) => {
+    onNavigate(section);
     setMobileMenuOpen(false);
-    window.scrollTo(0, 0);
   };
 
   const handleWhatsApp = () => {
     window.open('https://wa.me/256761389093', '_blank');
   };
 
-  const linkClass = (page: string) => 
-    `cursor-pointer transition-colors ${currentPage === page ? 'text-amber-600 font-semibold' : 'text-stone-900 hover:text-amber-600'}`;
+  const linkClass = "cursor-pointer transition-colors text-stone-900 hover:text-amber-600 font-medium";
 
   return (
     <>
@@ -59,10 +56,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex gap-8 text-sm font-medium text-stone-400">
-              <button onClick={() => handleNavClick('home')} className={linkClass('home')}>Home</button>
-              <button onClick={() => handleNavClick('about')} className={linkClass('about')}>About Us</button>
-              <button onClick={() => handleNavClick('service')} className={linkClass('service')}>Service</button>
-              <button onClick={() => handleNavClick('contact')} className={linkClass('contact')}>Contact Us</button>
+              <button onClick={() => handleNavClick('home')} className={linkClass}>Home</button>
+              <button onClick={() => handleNavClick('about')} className={linkClass}>About Us</button>
+              <button onClick={() => handleNavClick('service')} className={linkClass}>Service</button>
+              <button onClick={() => handleNavClick('contact')} className={linkClass}>Contact Us</button>
             </div>
           </div>
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import PageHeader from './components/PageHeader';
 import SectionStats from './components/SectionStats';
 import SectionManifesto from './components/SectionManifesto';
 import SectionServices from './components/SectionServices';
@@ -17,95 +16,66 @@ import DesignAssistant from './components/DesignAssistant';
 import Dashboard from './components/Dashboard';
 import LiveTicker from './components/LiveTicker';
 
-type ViewState = 'home' | 'about' | 'service' | 'contact' | 'dashboard';
-
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<ViewState>('home');
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
 
-  if (currentView === 'dashboard') {
-    return <Dashboard onBack={() => setCurrentView('home')} />;
+  if (isAdminOpen) {
+    return <Dashboard onBack={() => setIsAdminOpen(false)} />;
   }
 
-  const handleNavigate = (page: string) => {
-    setCurrentView(page as ViewState);
-    window.scrollTo(0, 0);
-  };
+  const handleNavigate = (sectionId: string) => {
+    // If navigating to home, scroll to top
+    if (sectionId === 'home') {
+       window.scrollTo({ top: 0, behavior: 'smooth' });
+       return;
+    }
 
-  const renderContent = () => {
-    switch (currentView) {
-      case 'home':
-        return (
-          <>
-            <Hero />
-            <SectionStats />
-            <SectionStory />
-            <SectionMarketData />
-            <SectionServices compact={true} onNavigate={handleNavigate} />
-            <SectionManifesto />
-            <SectionProcess />
-            <SectionResources />
-            <SectionClients />
-            <SectionFAQ />
-            <SectionContact />
-          </>
-        );
-      
-      case 'about':
-        return (
-          <>
-            <PageHeader 
-              title="Who We Are" 
-              subtitle="Legacy & Integrity"
-              image="https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(1).png?raw=true" 
-            />
-            <SectionStats />
-            <SectionStory />
-            <SectionManifesto />
-            <SectionClients />
-          </>
-        );
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 100; // Account for navbar height + ticker
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
 
-      case 'service':
-        return (
-          <>
-             <PageHeader 
-              title="Our Expertise" 
-              subtitle="Technical & Logistics"
-              image="https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(2).png?raw=true" 
-            />
-            <SectionServices compact={false} />
-            <SectionProcess />
-            <SectionMarketData />
-            <SectionResources />
-          </>
-        );
-
-      case 'contact':
-        return (
-          <>
-             <PageHeader 
-              title="Contact Us" 
-              subtitle="Get In Touch"
-              image="https://github.com/ugandagold/ugandagoldhubpics/blob/main/Generated%20image%201%20(6).png?raw=true" 
-            />
-            <SectionContact />
-            <SectionFAQ />
-          </>
-        );
-
-      default:
-        return null;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
     <div className="font-sans text-stone-900 bg-stone-50 antialiased overflow-x-hidden selection:bg-stone-200">
-      <Navbar onNavigate={handleNavigate} currentPage={currentView} />
+      <Navbar onNavigate={handleNavigate} />
       <main>
         <LiveTicker />
-        {renderContent()}
+        
+        <div id="home">
+          <Hero />
+        </div>
+        
+        <div id="about">
+          <SectionStats />
+          <SectionStory />
+          <SectionManifesto />
+        </div>
+
+        <div id="service">
+          <SectionServices compact={false} />
+          <SectionProcess />
+          <SectionMarketData />
+          <SectionResources />
+        </div>
+
+        <SectionClients />
+
+        <div id="contact">
+          <SectionFAQ />
+          <SectionContact />
+        </div>
       </main>
-      <Footer onAdminClick={() => setCurrentView('dashboard')} />
+      <Footer onAdminClick={() => setIsAdminOpen(true)} />
       <DesignAssistant />
     </div>
   );
